@@ -120,3 +120,32 @@ Your work will be graded based on the following considerations:
    - a link to your site on GitHub pages
    - a 5 minutes min selfie video, where you talk about yourself in a few words (age, location, military background, technological background). Think about this video as a part of your interview.
    - another 2-5 minute video where you talk about your submission solution, showing how your app works and any special features you added.
+
+## My Submission
+
+here's a [link to the page](https://ziv5ha.github.io/kanban-final/solution/)
+
+desktop view of the page:
+
+![alt text](./solution\images\dosktop-view.png)
+
+mobile view of the page:
+
+![alt text](./solution\images\mobile-view.png)
+
+## Kanban Features:
+
+- Keyboard shortcuts:
+ - alt+1,2,3 to change section
+- Search tasks
+- Storage functions:
+  - Save tasks (both localy and on a server)
+  - Load tsaks (both localy and on a server)
+  - Storage clearing (single and all)
+ - enter to add or save changes to a task
+- Task Labeling System:
+ - Color-coded Labels
+ - show only tasks with a certain label
+ - add new custom labels
+ - All labels (custom labels and task labels) are stored in local storage
+- Works well enough on mobile

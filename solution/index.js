@@ -373,7 +373,7 @@ async function storeTasks(){
     const loader = createElement("div", [], [], {id: "loading"})
     const header = document.getElementById("header")
     header.appendChild(loader)
-    const tasks = {taskObj, labelsObj: labeledTasksObj}
+    const tasks = taskObj
     const pushToCloud = await fetch("https://json-bins.herokuapp.com/bin/614ad8b24021ac0e6c080c0b", {
         method: "PUT",
         headers: {
