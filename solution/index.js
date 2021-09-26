@@ -171,6 +171,7 @@ function enterToAddNewTask(event){
         event.preventDefault()
         thisNewTaskButton.click()
         thisNewTaskButton = null
+        document.removeEventListener("keydown", enterToAddNewTask)
     }
 }
 
