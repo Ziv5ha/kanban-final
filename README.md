@@ -127,11 +127,11 @@ here's a [link to the page](https://ziv5ha.github.io/kanban-final/solution/)
 
 desktop view of the page:
 
-![alt text](./solution\images\dosktop-view.png)
+![dosktop](./solution/images/dosktop-view.png)
 
 mobile view of the page:
 
-![alt text](./solution\images\mobile-view.png)
+![mobile](./solution/images/mobile-view.png)
 
 ## Kanban Features:
 
