@@ -80,22 +80,15 @@ const addNewTaskData = (ul, task) => {
     }
 }
 const removeTaskData = (taskToDelete) => {
-    for (const task of taskObj.todo){
-        if (task == taskToDelete) {
-            taskObj.todo.splice(taskObj.todo.indexOf(task), 1)
-        }
-    }
-    for (const task of taskObj["in-progress"]){
-        if (task == taskToDelete) {
-            taskObj["in-progress"].splice(taskObj["in-progress"].indexOf(task), 1)
-        }
-    }
-    for (const task of taskObj.done){
-        if (task == taskToDelete) {
-            taskObj.done.splice(taskObj.done.indexOf(task), 1)
+    for (const [section, tasks] of Object.entries(taskObj)){
+        for (const task of tasks){
+            if (task == taskToDelete) {
+                taskObj[section].splice(taskObj.todo.indexOf(task), 1)
+            }
         }
     }
 }
+
 function updateLocalSaveData(){
     localSave = JSON.stringify(taskObj)
     localStorage.setItem("tasks", localSave)
@@ -176,22 +169,31 @@ function enterToAddNewTask(event){
 }
 
 //  Initializing DOM  //
-function generateLists(){
+const generateToDo = () => {
     for (const task of taskObj.todo) {
-        const toDoList = document.querySelectorAll(".to-do-tasks")[0]
-        const newTask = createTask(task)
-        toDoList.appendChild(newTask)
-    }
+            const toDoList = document.querySelectorAll(".to-do-tasks")[0]
+            const newTask = createTask(task)
+            toDoList.appendChild(newTask)
+        }
+}
+const generateInProgress = () => {
     for (const task of taskObj["in-progress"]) {
         const inProgressList = document.querySelectorAll(".in-progress-tasks")[0]
         const newTask = createTask(task)
         inProgressList.appendChild(newTask)
     }
+}
+const generateDone = () => {
     for (const task of taskObj.done) {
         const doneList = document.querySelectorAll(".done-tasks")[0]
         const newTask = createTask(task)
         doneList.appendChild(newTask)
     }
+}
+function generateLists(){
+    generateToDo()
+    generateInProgress()
+    generateDone()
 }
 generateLists()
 
@@ -297,7 +299,7 @@ for (const newTaskInput of newTaskInputs){
 }
 
 
-// Handelers
+// Hover Event Handeler
 function hoverHandler({target}){
     if (target.classList.contains("task")){
         selectedTask = target
@@ -369,11 +371,16 @@ function search({key}){
 }
 
 // API storage
-async function storeTasks(){
+function storeTasks(){
     const loader = createElement("div", [], [], {id: "loading"})
     const header = document.getElementById("header")
     header.appendChild(loader)
-    const tasks = taskObj
+    pushToCloud(taskObj)
+    header.removeChild(loader)
+}
+
+async function pushToCloud(tasksObject){
+    const tasks = tasksObject
     const pushToCloud = await fetch("https://json-bins.herokuapp.com/bin/614ad8b24021ac0e6c080c0b", {
         method: "PUT",
         headers: {
@@ -385,7 +392,6 @@ async function storeTasks(){
     if (!pushToCloud.ok) {
         alert(`Failed! Error ${response.status}: ${response.statusText}`);
     }
-    header.removeChild(loader)
 }
 
 async function loadTasks(){
