@@ -1,0 +1,360 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(223, 208, 154);
+    font-family: Garamond;
+    font-weight: 900;
+}
+/*   -----   Top   -----   */
+header{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    top: 0;
+    justify-content: space-between;
+    padding: 20px 0px 20px 15px;
+    position: fixed;
+    z-index: 1;
+    background-color: rgb(240, 229, 166);
+    border-bottom: 2px solid rgb(223, 208, 154);
+}
+h1{
+    display: flex;  
+    align-self: flex-start;
+    margin: 0 0 0 0;
+    padding: 0 0 0 20px;
+}
+#search{
+    display: flex;
+    height: 34px;
+    width: 300px;
+    border-width: 1px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+.API-storage-button{
+    /* margin: 10px -20px 0  0; */
+    height: 30px;
+    width: 70px;
+    margin-right: 30px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-size: 16px;
+    background-color: white;
+}
+.API-storage-button:hover{
+    cursor: pointer;
+    box-shadow: 0 0 5px rgb(119, 119, 119);
+}
+
+/*   -----   Main   -----   */
+#kanban{
+    display: flex;
+    flex-direction: row;
+    margin: 70px 0 0 0;
+}
+section{
+    margin: 10px 10px 10px 10px;
+    padding: 5px 20px 10px 20px;
+    width: 400px;
+    background-color: rgb(241, 226, 203);
+    font-size: large;
+    border-radius: 10px;
+    border-width: 5px;
+    border-style: double;
+    
+}
+h3{
+    margin: 10px 0 20px 0;
+    text-align: center;
+    font-family:monospace;
+    text-decoration: underline;
+    font-size:xx-large;
+}
+.task{
+    list-style: none;
+    display: flex;
+    padding: 8px 10px 8px 10px;
+    margin: 5px 0 5px 0;
+    background-color: rgb(248, 248, 234);
+    font-family:sans-serif;
+    letter-spacing: 1px;
+    justify-content: space-between;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 21px;
+    font-weight: 500;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+}
+ul{
+    padding-inline-start: 0;
+}
+.invisible{
+    display: none;
+}
+.pin{
+    display: block;
+    position: absolute;
+    width: 80px;
+    margin: -58px 0 0 340px;
+}
+.new-task-input{
+    width: 300px;
+    height: 20px;
+    border-radius: 6px;
+    border-width: 1px;
+}
+.new-task-button{
+    width: 50px;
+    height: 23px;
+    border-radius: 6px;
+    border-width: 1px;
+    background-color: white;
+}
+.new-task-button:hover{
+    cursor: pointer;
+    box-shadow: 0 0 3px rgb(119, 119, 119);
+}
+/*   -----   Loading   -----   */
+#loading{
+    display: block;
+    position:absolute;
+    margin: -15px 0 0 250px;
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db; 
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+    z-index: 100;
+}
+.display{
+    display: flex;
+    visibility: visible;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.hamburger-menu{
+    width: 15px;
+    height: 2px;
+    margin: 3px 2px 3px 2px;
+    background-color: rgb(117, 116, 116);
+}
+.options-button{
+    border-radius: 5px;
+    background-color: rgb(248, 248, 234);
+}
+.options-button:hover{
+    cursor: pointer;
+}
+.menu{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 3px 5px 3px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    background-color: rgb(253, 253, 253);
+    box-shadow: 0 0 8px rgb(119, 119, 119);
+}
+.delete-button{
+    background-color: rgb(255, 180, 180);
+}
+.in-menu-botton{
+    margin: 2px 0 2px 0;
+    border-radius: 4px;
+    width: 100px;
+    height: 30px;
+    font-size: 16px;
+}
+.in-menu-botton:hover{
+    cursor: pointer;
+}
+/*   -----   Labels   -----   */
+#labels{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 150px;
+    background-color: rgb(240, 229, 166);
+    height: 100vh;
+    padding: 100px 20px 50px 20px
+}
+.label-list{
+    list-style: none;
+}
+.label{
+    z-index: 1;
+    margin: 10px 0 10px 0;
+    padding: 5px 0 5px 0px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 8px;
+    border-style: solid ;
+    border-width: 1px;
+    background-color: rgb(255, 255, 255);
+}
+.label:hover{
+    cursor:pointer;
+    box-shadow: 0 0 6px rgb(119, 119, 119);
+}
+#label-opener-img{
+    display: none;
+}
+#custom-label-creator{
+    display: none;
+    position: fixed;
+    top: 160px;
+    width: 20vw;
+    height: 300px;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(179, 154, 112);
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgb(0, 0, 0);
+}
+#custom-label-creator.display{
+    display: flex;
+}
+.custom-label-imput{
+    padding: 0 0 0 0;
+    width: 200px;
+    border-width: 0;
+    height: 40px;
+    margin: 5px 0 5px 0;
+    border-radius: 5px;
+    font-size: 24px;
+}
+#custom-label-color:hover{
+    cursor: pointer;
+}
+#custom-label-btn{
+    margin: 30px 0 20px 0;
+    display: flex;
+    flex-direction: row;
+    /* align-self: flex-start; */
+    justify-content: space-between;
+    width: 200px;
+}
+#custom-label-btn button{
+    width: 80px;
+    height: 40px;
+    border-radius: 10px;
+    font: bold 18px monospace;
+}
+#custom-label-btn button:hover{
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 1100px) {
+    header{
+        padding: 10px 5px 5px 0;
+    }
+    h1{
+        font-size: 20px;
+    }
+    #search{
+        width: 100px;
+    }
+    #search:focus{
+        width: 200px;
+    }
+    .API-storage-button{
+        width: 50px;
+        font-size: 15px;
+        margin-right: 0;
+        padding: 0 0 0 0;
+    }
+    #loading{
+        margin: 45vh 0 0 45vw;
+    }
+    #kanban{
+        flex-direction: column;
+        margin: 80px 0 0 0;
+    }
+
+    #labels{
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 15vh;
+        left: 20vw;
+        width: 60vw;
+        height: 70vh;
+        background-color: rgb(224, 216, 170);
+        box-shadow: 0 0 8px black;
+        padding: 0 0 0 0;
+        border-radius: 10px;
+    }
+    #labels.display{
+        display: flex;
+    }
+    .label{
+        width: 200px;
+        height: 20px;
+        margin:  10px 0 10px 0;
+        padding: 5px 0 5px 0px;
+        font-size: 20px;
+        border-radius: 8px;
+    }
+    #label-opener-img{
+        display: block;
+        position: absolute;
+        top: 90px;
+        left: 30px;
+        width: 40px;
+        background-color: white;
+        border-radius: 10px;
+        padding:3px;
+        box-shadow: 0 0 3px black;
+        opacity: 0.8;
+    }
+    #label-opener-img:hover{
+        cursor: pointer;
+    }
+    section{
+        margin: 10px 10px 10px 10px;
+        padding: 5px 20px 10px 20px;
+        width: 300px;
+        border-width: 5px;
+        
+    }
+    .pin{
+        width: 50px;
+        margin: -58px 0 0 260px;
+    }
+    #custom-label-creator{
+        top: 15vh;
+        width: 60vw;
+        height: 45vh;
+        padding: 10px 20px 10px 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 6px rgb(119, 119, 119);
+    }
+    #custom-label-creator input{
+        width: 50vw;
+        border-width: 0;
+        height: 40px;
+        margin: 5px 0 5px 0;
+    }
+    #custom-label-btn{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 200px;
+    }
+    #custom-label-btn button{
+        width: 95px;
+        height: 60px;
+        font: bold 20px monospace;
+    }
+}

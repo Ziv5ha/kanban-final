@@ -141,7 +141,7 @@ describe(projectName, () => {
         wasInPut = true
       }
     })
-    await page.setViewport({ width: 1000, height: 600 })
+    await page.setViewport({ width: 1600, height: 600 })
     await page.goto(pagePath, { waitUntil: 'networkidle0' })
     await full4s.beforeAll()
   })
@@ -246,7 +246,7 @@ describe(projectName, () => {
     await page.$eval(searchInput, (e) => e.blur())
   })
 
-  test.skip('User should be able to save and load their tasks from the api and save it to the local storage', async () => {
+  test('User should be able to save and load their tasks from the api and save it to the local storage', async () => {
     const initialTasksCount = await countTasks()
     expect(initialTasksCount).toBe(3)
     await page.click(loadTasksFromApiBtn)
@@ -261,7 +261,7 @@ describe(projectName, () => {
     expect(tasksCountAfterRefresh).toBe(0)
   })
 
-  test.skip('User should be save tasks from the api', async () => {
+  test('User should be save tasks from the api', async () => {
     await addTasksAndTest()
     const initialTasksCount = await countTasks()
     expect(initialTasksCount).toBe(3)
